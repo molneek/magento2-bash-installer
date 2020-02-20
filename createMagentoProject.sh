@@ -241,7 +241,7 @@ then
     if [[ $sampleData == 'yes' ]];
     then
         docker exec -i $dockerName bash -c "cp ~/.composer/auth.json $projectRoot/auth.json"
-        docker exec -i $dockerName bash -c "cd $projectRoot && bin/magento sampledata:deploy && bin/magento cache:flush";
+        docker exec -i $dockerName bash -c "cd $projectRoot && bin/magento sampledata:deploy && bin/magento setup:upgrade && bin/magento cache:flush";
     fi
     wait$!
 else
@@ -279,7 +279,7 @@ else
     if [[ $sampleData == 'yes' ]];
     then
         cp ~/.composer/auth.json $projectRoot/auth.json
-        bin/magento sampledata:deploy && bin/magento cache:flush
+        bin/magento sampledata:deploy && bin/magento setup:upgrade && bin/magento cache:flush
     fi
     wait$!
 fi
