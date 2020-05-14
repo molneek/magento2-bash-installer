@@ -32,8 +32,8 @@ fi;
 
 if [[ $docker == 'yes' ]];
 then
-    docker exec -it php72 bash -c "nano ~/.composer/auth.json";
-    docker exec -it php72 bash -c "exit";
+    docker exec -it $dockerName bash -c "nano ~/.composer/auth.json";
+    docker exec -it $dockerName bash -c "exit";
 else
     nano ~/.composer/auth.json;
 fi
